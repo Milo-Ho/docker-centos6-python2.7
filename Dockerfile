@@ -16,7 +16,7 @@ RUN echo "root:root" | chpasswd
 RUN cd /root/ && \ 
     # 安装编译 Python 需要的包
     yum groupinstall -y "Development tools" && \ 
-    yum install -y zlib* bzip2-devel openssl-devel ncurses-devel sqlite-devel tcl-devel tk-devel && \ 
+    yum install -y wget zlib* bzip2-devel openssl-devel ncurses-devel sqlite-devel tcl-devel tk-devel && \ 
     # yum 没有兼容 Python2.7 ，需要使用 Python 2.6.*
     cp /usr/bin/python /usr/bin/python2.6.6 && sed -i '/python/ s/$/2.6.6/' /usr/bin/yum && \ 
     # 下载 Python 2.7 源码，用 ADD 就不用下载
